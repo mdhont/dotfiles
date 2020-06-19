@@ -1,15 +1,14 @@
 filetype plugin indent on
+set tabstop=2 shiftwidth=2 expandtab
 syntax on
 set hidden
 set backspace=indent,eol,start
 set nocompatible
-filetype plugin indent on
-set rtp+=~/.vim/bundle/Vundle.vim
 set t_Co=256
 set laststatus=0
 hi! VertSplit cterm=NONE
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/vundle.vim'
 Plugin 'valloric/matchtagalways'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mru.vim'
@@ -27,3 +26,6 @@ nmap <Leader>f :CtrlP<CR>
 nmap <Leader>v :vsplit<CR>
 nmap <Leader>h :split<CR>
 nmap <Leader>q :q<CR>
+
+
+
