@@ -21,6 +21,8 @@ Plugin 'valloric/matchtagalways'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mru.vim'
+Plugin 'airblade/vim-rooter'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattesgroeger/vim-bookmarks'
 Plugin 'mileszs/ack.vim'
@@ -33,6 +35,7 @@ nmap <Leader>r :MRU<CR>
 nmap <Leader>s :source ~/.vimrc<CR>
 nmap <Leader>f :CtrlP<CR>
 nmap <Leader>v :vsplit<CR>
+nmap <Leader>t :NERDTreeFind<CR>
 nmap <Leader>h :split<CR>
 nmap <Leader>q :q<CR>
 
