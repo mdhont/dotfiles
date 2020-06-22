@@ -1,6 +1,14 @@
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
 syntax on
+ if has('persistent_undo')
+   let target_path = expand('~/.config/vim-persisted-undo/')
+   if !isdirectory(target_path)
+     call system('mkdir -p ' . target_path)
+   endif
+   let &undodir = target_path
+   set undofile
+ endif
 set hidden
 set backspace=indent,eol,start
 set nocompatible
@@ -11,6 +19,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'valloric/matchtagalways'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'mru.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattesgroeger/vim-bookmarks'
