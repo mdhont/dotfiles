@@ -14,7 +14,19 @@ set backspace=indent,eol,start
 set nocompatible
 set t_Co=256
 set laststatus=0
-hi! VertSplit cterm=NONE
+hi! clear VertSplit 
+hi! clear SignColumn
+hi! clear SignColumn
+hi! clear LineNr
+highlight clear SignColumn
+highlight GitGutterAdd ctermfg=green
+highlight GitGutterChange ctermfg=yellow
+highlight GitGutterDelete ctermfg=red
+highlight GitGutterChangeDelete ctermfg=yellow
+hi! GitGutterAdd ctermbg=NONE
+hi! GitGutterChange ctermbg=NONE
+hi! GitGutterDelete ctermbg=NONE
+hi! GitGutterChangeDelete ctermbg=NONE
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'valloric/matchtagalways'
@@ -22,6 +34,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'mru.vim'
 Plugin 'airblade/vim-rooter'
+Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattesgroeger/vim-bookmarks'
@@ -38,6 +51,11 @@ nmap <Leader>v :vsplit<CR>
 nmap <Leader>t :NERDTreeFind<CR>
 nmap <Leader>h :split<CR>
 nmap <Leader>q :q<CR>
+nmap <Leader>o :only<CR>
+nmap <Leader>1 <C-W><left>
+nmap <Leader>2 <C-W><right>
+nmap <Leader>3 <C-W><up>
+nmap <Leader>4 <C-W><down>
 
 
 
