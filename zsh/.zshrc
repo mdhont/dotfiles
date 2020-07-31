@@ -7,7 +7,7 @@ alias lp="ls -ld $PWD/*"
 alias sudo='sudo '
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR='emacs'
+export EDITOR='vim'
 ZSH_THEME="avit"
 plugins=(git z)
 
