@@ -1,0 +1,3 @@
+[submodule "lunarvim/lunarvim/.local/share/lunarvim"]
+	path = lunarvim/lunarvim/.local/share/lunarvim
+	url = https://github.com/lunarvim/lunarvim.git
