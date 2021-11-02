@@ -1,0 +1,10 @@
+# $HOME/.config/tmuxinator/projects.yml
+
+name: projects
+root: ~/
+
+
+windows:
+  - main 1:
+  - main 2:
+  - main 3:
