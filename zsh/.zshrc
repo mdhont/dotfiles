@@ -1,6 +1,5 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
-alias nvim=$HOME/.local/bin/nvim
 alias vim=$HOME/.local/bin/lvim
 vimalias="$HOME/.local/bin/lvim"
 alias vim=$vimalias
@@ -20,4 +19,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Only load liquidprompt in interactive shells, not from a script or from scp
 echo $- | grep -q i 2>/dev/null && . /usr/share/liquidprompt/liquidprompt
+export PATH="$HOME/bin:$PATH"
 
