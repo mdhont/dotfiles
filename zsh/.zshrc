@@ -2,6 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 alias vim=$HOME/.local/bin/lvim
 vimalias="$HOME/.local/bin/lvim"
+export EDITOR=$vimalias
 alias vim=$vimalias
 export FZF_DEFAULT_OPTS="--ansi --color --bind 'ctrl-o:execute($vimalias \"+normal \$(echo {} | cut -d: -f2)G\$(echo {} | cut -d: -f3)|\" \$(echo {} | cut -d: -f1) < /dev/tty)'"
 if [ -f /opt/homebrew/share/liquidprompt ]; then
