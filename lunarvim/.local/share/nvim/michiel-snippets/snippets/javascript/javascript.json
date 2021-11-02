@@ -1,0 +1,30 @@
+{
+  "Puppeteer wait and click": {
+    "prefix": "pupWaitAndClick",
+    "body": "await this.page.waitForSelector('${1}');\nawait this.screenshot('${2}');\nawait this.page.click('${1}');"
+  },
+  "Puppeteer fill form": {
+    "prefix": "pupFillForm",
+    "body": "await this.page.waitForSelector('${1}');\nawait this.page.type('${1}', ${2});"
+  },
+  "Puppeteer waitAndConfirm": {
+    "prefix": "pupWaitAndConfirm",
+    "body": "await this.page.waitForSelector('${1}');\nawait this.screenshot('${2}');"
+  },
+  "Puppeteer uploadFile": {
+    "prefix": "pupUploadFile",
+    "body": "const uploadFile = await this.page.waitFor('${1}');\nawait this.screenshot('filename-input-visible');\nawait uploadFile.uploadFile('../../../tests/bitnami.png')nawait uploadFile.evaluate((upload) => upload.dispatchEvent(new Event('change', {bubbles: true})));"
+  },
+  "Puppeteer waitForXPath": {
+    "prefix": "pupWaitForXPath",
+    "body": "await this.page.waitForXPath('//${1}[contains(text(), \"${2}\")]');"
+  },
+  "Puppeteer XPathClick": {
+    "prefix": "pupXPathClick",
+    "body": " await this.page.waitForXPath(`${1}`);\nconst ${2} = await this.page.$x(`${1}`);\nawait this.screenshot('${3}');\nif (${2}.length > 0) {\n  await ${2}[0].click();\n}"
+  },
+  "Puppeteer XPathConfirm": {
+    "prefix": "pupXPathConfirm",
+    "body": "await this.page.waitForXPath('//${1}[contains(text(), \"${2}\")]');\nawait this.screenshot('${3}');\n"
+  }
+}
