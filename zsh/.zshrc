@@ -17,5 +17,5 @@ plugins=(git z)
 source $ZSH/oh-my-zsh.sh
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 echo $- | grep -q i 2>/dev/null && . /usr/share/liquidprompt/liquidprompt
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/scripts/:$HOME/bin:$PATH"
 
