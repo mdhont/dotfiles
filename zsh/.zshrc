@@ -27,6 +27,18 @@ function e {
   fi
 }
 
+function er {
+  if [ -e "$HOME/.cache/nvim/server.pipe" ]; then
+    vim --server ~/.cache/nvim/server.pipe --remote-send '<cmd>Alpha<CR>'
+  fi
+}
+
+function eq {
+  if [ -e "$HOME/.cache/nvim/server.pipe" ]; then
+    vim --server ~/.cache/nvim/server.pipe --remote-send ':qa<CR>'
+  fi
+}
+
 export FZF_DEFAULT_OPTS="--ansi --color --bind 'ctrl-o:execute($vim \"+normal \$(echo {} | cut -d: -f2)G\$(echo {} | cut -d: -f3)|\" \$(echo {} | cut -d: -f1) < /dev/tty),ctrl-i:execute($vim \$(echo {} | cut -d: -f1) < /dev/tty)'"
 function fst {
   local position="$(ag --color --column --nogroup -i "$1" | fzf)"
@@ -37,7 +49,9 @@ function fst {
 
 function ffi {
   local file="$(fzf)"
-  e $file
+  if [ -n "$file" ]; then
+    e $file
+  fi
 }
 
 function gco {
@@ -45,19 +59,25 @@ function gco {
 }
 function gdm {
   file=$(git diff --name-only master | fzf);
-  e $(git rev-parse --show-toplevel)/$file
+  if [ -n "$file" ]; then
+    e $(git rev-parse --show-toplevel)/$file
+  fi
 }
 
 function gdf {
   file=$(git diff --name-only | fzf);
-  e $(git rev-parse --show-toplevel)/$file
+  if [ -n "$file" ]; then
+    e $(git rev-parse --show-toplevel)/$file
+  fi
 }
 
 function grf {
   local file=$(git diff --check | fzf);
   local filePath=$(echo $file | cut -d: -f1)
   local lineNum=$(echo $file | cut -d: -f2)
-  e "$(git rev-parse --show-toplevel)/$filePath" "$lineNum"
+  if [ -n "$file" ]; then
+    e "$(git rev-parse --show-toplevel)/$filePath" "$lineNum"
+  fi
 }
 plugins=(git z)
 source $ZSH/oh-my-zsh.sh
