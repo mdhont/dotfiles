@@ -16,6 +16,7 @@ lvim.transparent_window = true
 vim.opt.wrap = true
 vim.opt.number = false
 vim.opt.showtabline = 2
+-- lvim.builtin.lualine.style = "default"
 
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -49,15 +50,11 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble workspace_diagnostics<cr>", "Wordspace Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["\\"] = {
+  name = "+Vertical Resize",
+  ["<Left>"] = { "<cmd>:vertical resize -10<cr>", "Decrease vertical window" },
+  ["<Right>"] = { "<cmd>:vertical resize +10<cr>", "Increase vertical window" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -144,40 +141,28 @@ lvim.builtin.treesitter.highlight.enabled = true
 --   },
 -- }
 
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { command = "flake8", filetypes = { "python" } },
---   {
---     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--severity", "warning" },
---   },
---   {
---     command = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
+-- set additional linters
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { command = "jsonlint", filetypes = { "json" } },
+}
 
 -- Additional Plugins
 lvim.plugins = {
-    {"rafi/awesome-vim-colorschemes"},
-    {"ellisonleao/gruvbox.nvim"},
-    {"christoomey/vim-tmux-navigator"},
-    {"~/.local/share/nvim/michiel-snippets"},
-    {"google/vim-jsonnet",
-  config = function ()
-    vim.cmd ('let g:jsonnet_fmt_on_save = 0')
-  end,
-},
-    {"voldikss/vim-floaterm",
-  config = function ()
-    vim.cmd ('let g:floaterm_wintype = "vsplit"')
-  end,
-},
+  { "rafi/awesome-vim-colorschemes" },
+  { "ntpeters/vim-better-whitespace",
+    config = function()
+      vim.cmd('let g:better_whitespace_guicolor="#880235"')
+    end,
+  },
+  { "ellisonleao/gruvbox.nvim" },
+  { "christoomey/vim-tmux-navigator" },
+  { "~/.local/share/nvim/michiel-snippets" },
+  { "google/vim-jsonnet",
+    config = function()
+      vim.cmd('let g:jsonnet_fmt_on_save = 0')
+    end,
+  },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
